@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script>
+    	$(document).ready(function() {
+    		var percentChange = $('.finance-percentchange');
+    		console.log(percentChange.html().substring(0,1));
+    		if (percentChange.html().substring(0,1) == '+') {
+    			percentChange.css('color','green');
+    		} else {
+    			percentChange.css('color','red');
+    		}
+    	});
+    </script>
+    <style>
+    	.container {
+    		margin-top: 30px;
+    	}
+    	.finance-header {
+    		font-size: 1.5em;
+    	}
+    	.finance-name {
+    		font-weight: bold;	
+    	}
+    	.finance-exchange {
+    		color: #CCC;
+    		letter-spacing: 1px;
+    		font-weight: 100;
+    		margin-left: 10px;
+    	}
+    	.finance-container {
+    		margin: 20px 0px;
+    		height: 100px;
+    		position: relative;
+    	}
+    	.finance-ask {
+    		padding: 40px 0px 70px 0px;
+    		font-size: 10em;
+    		font-weight: 200;
+    	}
+    	.finance-secondary {
+    		font-weight: 200;
+    		position: absolute;
+    		top: 3px;
+    		right: 75px;
+    		width: 400px;
+    	}
+    	.finance-prices {
+    		font-weight: 200;
+    		font-size: 1.5em;
+    	}
+    </style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<form class="form-inline" action="/finance" method="POST">
+			<div class="input-append">
+				<input class="input-xxlarge" type="text" name="symbol" placeholder="Type a symbol here (eg. AAPL)"/>
+				<button type="submit" class="btn">Search</button>
+			</div>
+		</form>
+		{% if data != None: %}
+		<div class="finance-header">
+			<span class="finance-name">{{ data['Name'] }}</span>
+			<span class="finance-exchange">{{ data['StockExchange'] }}</span>
+		</div>
+		<div class="finance-container">
+			<div class="finance-ask">{{ data['LastTradePriceOnly'] }}</div>
+			<div class="finance-secondary">
+				<div class="finance-daysrange">Range: {{ data['DaysRange'] }}</div>
+				<div class="finance-yearrange">52 Week: {{ data['YearRange'] }}</div>
+				<div class="finance-open">Open: {{ data['Open'] }}</div>
+				<div class="finance-marketcap">Market Cap: {{ data['MarketCapitalization'] }}</div>
+				<div class="finance-peration">P/E: {{ data['PERatio'] }}</div>
+			</div>
+		</div>
+		<div class="finance-prices">
+			<span class="finance-percentchange">{{ data['Change'] }} ({{ data['PercentChange'] }})</span>
+		</div>
+		{% else %}
+		<h3>Start searching with the bar</h3>
+		{% endif %}
+	</div>
+</div>
+</body>
+
