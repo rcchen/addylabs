@@ -1,0 +1,100 @@
+<!doctype html>
+<head>
+    <title>Sirona - Medical Reminders for Humans</title>
+    <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap-cosmo.min.css') }}">-->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <style>
+        
+        html {
+            background: url("{{ url_for('static', filename='images/background.jpg') }}") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #title {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: block;
+            font-size: 50px;
+            padding: 10px;
+            width: 300px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+
+        #caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: block;
+            font-size: 20px;
+            padding: 10px;
+            width: 350px;
+            position: absolute;
+            top: 150px;
+            left: 50px;           
+        }
+
+        #description {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: block;
+            font-size: 14px;
+            padding: 10px;
+            width: 500px;
+            position: absolute;
+            top: 210px;
+            left: 50px;  
+        }
+
+        #getnotified {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: block;
+            font-size: 14px;
+            padding: 10px;
+            width: 210px;
+            position: absolute;
+            top: 300px;
+            left: 50px;  
+        }
+
+    </style>
+</head>
+<body>
+    <div id="title">
+        Never forget
+    </div>
+    <div id="caption">
+        To take your medication again, that is.
+    </div>
+    <div id="description">
+        Sirona keeps track of your medications so you don't need to. Dates, times, we got all the customization you need in place. Just put in your information and Sirona does the rest. Medical compliance, check.
+    </div>
+    <div id="getnotified">
+        Coming soon to the App Store.
+    </div>
+<!--<div class="container">
+    <div class="row">
+        <div class="span7">
+            <h1>Never forget.</h1>
+            <h3>To take your medication again, that is.</h3>
+            <p class="lead">Sirona keeps track of your medications so you don't need to. Dates, times, we got all the customization you need in place. Just put in your information and Sirona does the rest. Medical compliance, check.</p>
+            <img src="{{ url_for('static', filename='images/appstore.png') }}" height="100%" />
+        </div>
+        <div class="span5">
+            <img src="{{ url_for('static', filename='images/iphone-demo1.png') }}" height="100%" />
+        </div>
+    </div>
+    <div class="footer">
+        fall.2012.cs147/healthstudio
+    </div>
+</div>-->
+
+</body>
+

@@ -18,6 +18,10 @@ def finance():
     else:
         return render_template('finance.html', data = None)
 
+@app.route('/sirona')
+def sirona():
+    return render_template('sirona.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')
